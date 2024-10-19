@@ -2,7 +2,7 @@ import { toast } from 'react-hot-toast';
 
 const isProduction = process.env.NODE_ENV === 'production';
 const API_BASE_URL = isProduction 
-  ? 'https://my-json-server.typicode.com/Max030201/mini-shop-json'
+  ? 'https://max030201.github.io/mini-shop-json/db.json'
   : 'http://localhost:3001';
 
 export const getProducts = async (params = {}) => {
