@@ -150,8 +150,8 @@ describe('CartView', () => {
       render(<CartView onClose={mockOnClose} onContinueShopping={mockOnContinueShopping} />);
       
       expect(screen.getByText('Итого:')).toBeInTheDocument();
-      expect(screen.getByText((content) => content.replace(/\s/g, '').includes('4972'))).toBeInTheDocument();
-      expect(screen.getByText((content) => content.replace(/\s/g, '').includes('5570'))).toBeInTheDocument();
+      expect(screen.getByText(/4,?\s?972/)).toBeInTheDocument();
+      expect(screen.getByText(/5,?\s?570/)).toBeInTheDocument();
     });
 
     it('отображает итоговую сумму без скидки', () => {
@@ -162,8 +162,8 @@ describe('CartView', () => {
       });
 
       render(<CartView onClose={mockOnClose} onContinueShopping={mockOnContinueShopping} />);
-      expect(screen.getByText((content) => content.replace(/\s/g, '').includes('5570'))).toBeInTheDocument();
-      expect(screen.queryByText((content) => content.replace(/\s/g, '').includes('4972'))).not.toBeInTheDocument();
+      expect(screen.getByText(/5,?\s?570/)).toBeInTheDocument();
+      expect(screen.queryByText(/4,?\s?972/)).not.toBeInTheDocument();
     });
 
     it('вызывает onClose при клике на кнопку закрытия', () => {
@@ -296,7 +296,7 @@ describe('CartView', () => {
 
       render(<CartView onClose={mockOnClose} onContinueShopping={mockOnContinueShopping} />);
       // Проверяем, что есть элемент с числом 1000
-      expect(screen.getByText((content) => content.replace(/\s/g, '').includes('1000'))).toBeInTheDocument();
+      expect(screen.getByText(/1,?\s?000/)).toBeInTheDocument();
       // Проверяем отсутствие зачеркнутой цены
       expect(screen.queryByText((content, element) => {
         return element.className && element.className.includes('line-through');

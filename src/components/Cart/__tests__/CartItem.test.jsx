@@ -120,7 +120,7 @@ describe('CartItem', () => {
     expect(screen.getByText('800₽')).toBeInTheDocument();
     expect(screen.getByText('1000₽')).toBeInTheDocument();
     expect(screen.getByText('за шт.')).toBeInTheDocument();
-    expect(screen.getByText('1 600₽')).toBeInTheDocument();
+    expect(screen.getByText(/1[,\s\u00A0]600\s*₽/)).toBeInTheDocument();
   });
 
   it('рендерит товар без скидки', () => {
@@ -129,7 +129,7 @@ describe('CartItem', () => {
     
     expect(screen.getByText('1000₽')).toBeInTheDocument();
     expect(screen.queryByText('800₽')).not.toBeInTheDocument();
-    expect(screen.getByText('2 000₽')).toBeInTheDocument();
+    expect(screen.getByText(/2[,\s\u00A0]000\s*₽/)).toBeInTheDocument();
   });
 
   it('рендерит товар без описания и бренда', () => {

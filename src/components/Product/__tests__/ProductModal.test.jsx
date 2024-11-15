@@ -99,7 +99,7 @@ describe('ProductModal', () => {
   it('отображает скидку и зачёркнутую цену при onSale', () => {
     render(<ProductModal product={mockProduct} visible={true} onHide={onHide} />);
 
-    const priceRegex = /4[\s\u00A0]000/;
+    const priceRegex = /4[,\s\u00A0]000/;
     const priceNodes = screen.getAllByText(priceRegex);
 
     expect(priceNodes.some(node => node.className && node.className.includes('text-red-600'))).toBe(true);
@@ -149,7 +149,7 @@ describe('ProductModal', () => {
     render(<ProductModal product={product} visible={true} onHide={onHide} />);
     expect(screen.getByText('Товар')).toBeInTheDocument();
 
-    const priceElements = screen.getAllByText(/1 000₽/);
+    const priceElements = screen.getAllByText(/1[,\s\u00A0]000\s*₽/);
     expect(priceElements.length).toBeGreaterThan(0);
   });
 
