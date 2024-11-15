@@ -9,6 +9,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
     clean: true,
+    publicPath: '/mini-shop/',
   },
   mode: 'development',
   devServer: {
@@ -60,10 +61,12 @@ module.exports = {
         {
           from: 'public/images',
           to: 'images',
+          noErrorOnMissing: true,
         },
         {
           from: 'db.json',
           to: 'db.json',
+          noErrorOnMissing: true,
         },
       ],
     }),
