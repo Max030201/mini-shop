@@ -31,11 +31,11 @@ const CartItem = ({ item }) => {
       <div className="flex flex-col md:flex-row items-stretch gap-4 pr-4 pl-4 py-4">
         <div className="flex-shrink-0 w-full md:w-auto flex justify-center md:block mb-2 md:mb-0">
           <img
-            src={item.image}
+            src={`${process.env.PUBLIC_URL}/${item.image}`}
             alt={item.name}
             className="w-32 h-32 object-cover rounded-lg shadow"
             onError={(e) => {
-              e.target.src = '/images/img-1.jpg';
+              e.target.src = `${process.env.PUBLIC_URL}/images/img-1.jpg`;
             }}
           />
         </div>

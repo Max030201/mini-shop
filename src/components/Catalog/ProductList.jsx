@@ -105,7 +105,7 @@ const ProductList = ({ products: productsProp, filters, onProductClick, searchQu
         disabled={options.disabled}
         aria-label="Первая страница"
       >
-        <img src="/images/arrow-double-left.svg" alt="В начало" className="w-7 h-7" />
+        <img src={`${process.env.PUBLIC_URL}/images/arrow-double-left.svg`} alt="В начало" className="w-7 h-7" />
       </button>
     ),
     PrevPageLink: (options) => (
@@ -116,7 +116,7 @@ const ProductList = ({ products: productsProp, filters, onProductClick, searchQu
         disabled={options.disabled}
         aria-label="Предыдущая страница"
       >
-        <img src="/images/arrow-left.svg" alt="Назад" className="w-5 h-5" />
+        <img src={`${process.env.PUBLIC_URL}/images/arrow-left.svg`} alt="Назад" className="w-5 h-5" />
       </button>
     ),
     NextPageLink: (options) => (
@@ -127,7 +127,7 @@ const ProductList = ({ products: productsProp, filters, onProductClick, searchQu
         disabled={options.disabled}
         aria-label="Следующая страница"
       >
-        <img src="/images/arrow-right.svg" alt="Вперёд" className="w-5 h-5" />
+        <img src={`${process.env.PUBLIC_URL}/images/arrow-right.svg`} alt="Вперёд" className="w-5 h-5" />
       </button>
     ),
     LastPageLink: (options) => (
@@ -138,7 +138,7 @@ const ProductList = ({ products: productsProp, filters, onProductClick, searchQu
         disabled={options.disabled}
         aria-label="Последняя страница"
       >
-        <img src="/images/arrow-double-right.svg" alt="В конец" className="w-7 h-7" />
+        <img src={`${process.env.PUBLIC_URL}/images/arrow-double-right.svg`} alt="В конец" className="w-7 h-7" />
       </button>
     ),
     CurrentPageReport: (options) => {
@@ -236,11 +236,11 @@ const ProductList = ({ products: productsProp, filters, onProductClick, searchQu
                 <div className="flex flex-col h-full">
                   <div className="relative">
                     <img
-                      src={product.image}
+                      src={`${process.env.PUBLIC_URL}/${product.image}`}
                       alt={product.name}
                       className="w-full h-48 object-cover rounded-t-2xl shadow-sm"
                       onError={(e) => {
-                        e.target.src = '/images/img-1.jpg';
+                        e.target.src = `${process.env.PUBLIC_URL}/images/img-1.jpg`;
                       }}
                     />
                     {product.onSale && (

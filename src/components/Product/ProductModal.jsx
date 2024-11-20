@@ -115,7 +115,7 @@ const ProductModal = ({ product, visible, onHide, fromCart = false }) => {
           <div className="flex items-center justify-between gap-2">
             <h2 className="text-2xl font-bold text-gray-900 truncate pr-2">{product.name}</h2>
             <div className="flex items-center gap-1 ml-2 shrink-0">
-              <img src="/images/star.svg" alt="рейтинг" className="w-5 h-5 text-yellow-500 inline" />
+              <img src={`${process.env.PUBLIC_URL}/images/star.svg`} alt="рейтинг" className="w-5 h-5 text-yellow-500 inline" />
               <span className="text-base text-gray-600 font-semibold">{product.rating}</span>
             </div>
           </div>
@@ -125,7 +125,7 @@ const ProductModal = ({ product, visible, onHide, fromCart = false }) => {
           onClick={onHide}
           aria-label="Закрыть"
         >
-          <img src="/images/close.svg" alt="закрыть" className="w-6 h-6" />
+          <img src={`${process.env.PUBLIC_URL}/images/close.svg`} alt="закрыть" className="w-6 h-6" />
         </button>
       </div>
 
@@ -143,10 +143,10 @@ const ProductModal = ({ product, visible, onHide, fromCart = false }) => {
               return (
                 <img
                   key={i}
-                  src={img}
+                  src={`${process.env.PUBLIC_URL}/${img}`}
                   alt={product.name}
                   className={base}
-                  onError={(e) => { e.target.src = '/images/img-1.jpg'; }}
+                  onError={(e) => { e.target.src = `${process.env.PUBLIC_URL}/images/img-1.jpg`; }}
                   style={style}
                 />
               );
@@ -276,7 +276,7 @@ const ProductModal = ({ product, visible, onHide, fromCart = false }) => {
             )}
           </div>
           <div className="flex items-center gap-1 text-xs text-gray-400 mt-auto self-end select-none">
-            <img src="/images/eye.svg" alt="просмотры" className="w-4 h-4 align-text-bottom" />
+            <img src={`${process.env.PUBLIC_URL}/images/eye.svg`} alt="просмотры" className="w-4 h-4 align-text-bottom" />
             {product.reviews || 0} просмотров
           </div>
         </div>
