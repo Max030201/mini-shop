@@ -5,7 +5,7 @@ const API_BASE_URL = isProduction
   ? 'https://max030201.github.io/mini-shop-json'
   : 'http://localhost:3001';
 
-// Функция для фильтрации продуктов на клиенте (для продакшена)
+// Функция для фильтрации товаров для продакшена
 const filterProductsLocally = (products, params) => {
   let filtered = [...products];
   const {
@@ -88,7 +88,6 @@ const filterProductsLocally = (products, params) => {
 export const getProducts = async (params = {}) => {
   try {
     if (isProduction) {
-      // НА ПРОДАКШЕНЕ: загружаем весь db.json и фильтруем локально
       const response = await fetch(`${API_BASE_URL}/db.json`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -103,14 +102,12 @@ export const getProducts = async (params = {}) => {
         totalCount: filteredProducts.length
       };
     } else {
-      // НА ЛОКАЛЬНОЙ РАЗРАБОТКЕ: как раньше (json-server)
       const queryParams = new URLSearchParams();
 
       if (params.search && params.search.trim().length > 0) {
         queryParams.append('name_like', params.search.trim());
       }
 
-      // Обрабатываем как массив categories, так и одиночную category
       if (Array.isArray(params.categories) && params.categories.length > 0) {
         params.categories.forEach(cat => {
           if (cat && cat.trim()) {
@@ -165,7 +162,6 @@ export const getProducts = async (params = {}) => {
 export const getProductById = async (id) => {
   try {
     if (isProduction) {
-      // НА ПРОДАКШЕНЕ: загружаем весь db.json и ищем товар
       const response = await fetch(`${API_BASE_URL}/db.json`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -180,7 +176,6 @@ export const getProductById = async (id) => {
       
       return product;
     } else {
-      // НА ЛОКАЛЬНОЙ РАЗРАБОТКЕ: как раньше
       const response = await fetch(`${API_BASE_URL}/products/${id}`);
       
       if (!response.ok) {
@@ -199,7 +194,6 @@ export const getProductById = async (id) => {
 export const getCategories = async () => {
   try {
     if (isProduction) {
-      // НА ПРОДАКШЕНЕ: загружаем весь db.json и извлекаем категории
       const response = await fetch(`${API_BASE_URL}/db.json`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -209,7 +203,6 @@ export const getCategories = async () => {
       const categories = [...new Set(data.products.map(p => p.category))];
       return categories;
     } else {
-      // НА ЛОКАЛЬНОЙ РАЗРАБОТКЕ: как раньше
       const response = await fetch(`${API_BASE_URL}/categories`);
       
       if (!response.ok) {
