@@ -183,7 +183,7 @@ const CheckoutModal = ({ visible, onHide, onSuccess }) => {
             aria-label="Закрыть"
             disabled={isSubmitting}
           >
-            <img src={`${process.env.PUBLIC_URL}/images/close.svg`} alt="закрыть" className="w-6 h-6" />
+            <img src={`${window.APP_CONFIG.basePath}/images/close.svg`} alt="закрыть" className="w-6 h-6" />
           </button>
         </div>
       }
