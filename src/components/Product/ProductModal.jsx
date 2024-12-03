@@ -5,6 +5,7 @@ import { InputNumber } from 'primereact/inputnumber';
 import { Tag } from 'primereact/tag';
 import { useCart } from '../../context/CartContext';
 import { SelectButton } from 'primereact/selectbutton';
+import { getImagePath } from '../../utils/imageUtils';
 import { toast } from 'react-hot-toast';
 
 const ProductModal = ({ product, visible, onHide, fromCart = false }) => {
@@ -115,7 +116,7 @@ const ProductModal = ({ product, visible, onHide, fromCart = false }) => {
           <div className="flex items-center justify-between gap-2">
             <h2 className="text-2xl font-bold text-gray-900 truncate pr-2">{product.name}</h2>
             <div className="flex items-center gap-1 ml-2 shrink-0">
-              <img src={`${window.APP_CONFIG.basePath}/images/star.svg`} alt="рейтинг" className="w-5 h-5 text-yellow-500 inline" />
+              <img src={getImagePath('images/star.svg')} alt="рейтинг" className="w-5 h-5 text-yellow-500 inline" />
               <span className="text-base text-gray-600 font-semibold">{product.rating}</span>
             </div>
           </div>
@@ -125,7 +126,7 @@ const ProductModal = ({ product, visible, onHide, fromCart = false }) => {
           onClick={onHide}
           aria-label="Закрыть"
         >
-          <img src={`${window.APP_CONFIG.basePath}/images/close.svg`} alt="закрыть" className="w-6 h-6" />
+          <img src={getImagePath('images/close.svg')} alt="закрыть" className="w-6 h-6" />
         </button>
       </div>
 
@@ -143,10 +144,10 @@ const ProductModal = ({ product, visible, onHide, fromCart = false }) => {
               return (
                 <img
                   key={i}
-                  src={`${window.APP_CONFIG.basePath}/${img}`}
+                  src={getImagePath(img)}
                   alt={product.name}
                   className={base}
-                  onError={(e) => { e.target.src = `${window.APP_CONFIG.basePath}/images/img-1.jpg`; }}
+                  onError={(e) => { e.target.src = getImagePath('images/img-1.jpg'); }}
                   style={style}
                 />
               );
@@ -276,7 +277,7 @@ const ProductModal = ({ product, visible, onHide, fromCart = false }) => {
             )}
           </div>
           <div className="flex items-center gap-1 text-xs text-gray-400 mt-auto self-end select-none">
-            <img src={`${window.APP_CONFIG.basePath}/images/eye.svg`} alt="просмотры" className="w-4 h-4 align-text-bottom" />
+            <img src={getImagePath('images/eye.svg')} alt="просмотры" className="w-4 h-4 align-text-bottom" />
             {product.reviews || 0} просмотров
           </div>
         </div>

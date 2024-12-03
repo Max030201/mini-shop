@@ -7,6 +7,7 @@ import { Message } from 'primereact/message';
 import { useCart } from '../../context/CartContext';
 import { toast } from 'react-hot-toast';
 import { calculateCartTotals } from '../../utils/cartUtils';
+import { getImagePath } from '../../utils/imageUtils';
 
 const CheckoutModal = ({ visible, onHide, onSuccess }) => {
   const { cart, total, clearCart } = useCart();
@@ -183,7 +184,7 @@ const CheckoutModal = ({ visible, onHide, onSuccess }) => {
             aria-label="Закрыть"
             disabled={isSubmitting}
           >
-            <img src={`${window.APP_CONFIG.basePath}/images/close.svg`} alt="закрыть" className="w-6 h-6" />
+            <img src={getImagePath('images/close.svg')} alt="закрыть" className="w-6 h-6" />
           </button>
         </div>
       }

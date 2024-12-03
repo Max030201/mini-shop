@@ -6,6 +6,7 @@ import { Message } from 'primereact/message';
 import { getProducts } from '../../api/productsApi';
 import { useCart } from '../../context/CartContext';
 import SearchSortBar from './SearchSortBar';
+import { getImagePath } from '../../utils/imageUtils';
 import { toast } from 'react-hot-toast';
 
 const ProductList = ({ products: productsProp, filters, onProductClick, searchQuery, setSearchQuery, sortBy, setSortBy }) => {
@@ -105,7 +106,7 @@ const ProductList = ({ products: productsProp, filters, onProductClick, searchQu
         disabled={options.disabled}
         aria-label="Первая страница"
       >
-        <img src={`${window.APP_CONFIG.basePath}/images/arrow-double-left.svg`} alt="В начало" className="w-7 h-7" />
+        <img src={getImagePath('images/arrow-double-left.svg')} alt="В начало" className="w-7 h-7" />
       </button>
     ),
     PrevPageLink: (options) => (
@@ -116,7 +117,7 @@ const ProductList = ({ products: productsProp, filters, onProductClick, searchQu
         disabled={options.disabled}
         aria-label="Предыдущая страница"
       >
-        <img src={`${window.APP_CONFIG.basePath}/images/arrow-left.svg`} alt="Назад" className="w-5 h-5" />
+        <img src={getImagePath('images/arrow-left.svg')} alt="Назад" className="w-5 h-5" />
       </button>
     ),
     NextPageLink: (options) => (
@@ -127,7 +128,7 @@ const ProductList = ({ products: productsProp, filters, onProductClick, searchQu
         disabled={options.disabled}
         aria-label="Следующая страница"
       >
-        <img src={`${window.APP_CONFIG.basePath}/images/arrow-right.svg`} alt="Вперёд" className="w-5 h-5" />
+        <img src={getImagePath('images/arrow-right.svg')} alt="Вперёд" className="w-5 h-5" />
       </button>
     ),
     LastPageLink: (options) => (
@@ -138,7 +139,7 @@ const ProductList = ({ products: productsProp, filters, onProductClick, searchQu
         disabled={options.disabled}
         aria-label="Последняя страница"
       >
-        <img src={`${window.APP_CONFIG.basePath}/images/arrow-double-right.svg`} alt="В конец" className="w-7 h-7" />
+        <img src={getImagePath('images/arrow-double-right.svg')} alt="В конец" className="w-7 h-7" />
       </button>
     ),
     CurrentPageReport: (options) => {
@@ -236,11 +237,11 @@ const ProductList = ({ products: productsProp, filters, onProductClick, searchQu
                 <div className="flex flex-col h-full">
                   <div className="relative">
                     <img
-                      src={`${window.APP_CONFIG.basePath}/${product.image}`}
+                      src={getImagePath('product.image')}
                       alt={product.name}
                       className="w-full h-48 object-cover rounded-t-2xl shadow-sm"
                       onError={(e) => {
-                        e.target.src = `${window.APP_CONFIG.basePath}/images/img-1.jpg`;
+                        e.target.src = getImagePath('images/img-1.jpg');
                       }}
                     />
                     {product.onSale && (

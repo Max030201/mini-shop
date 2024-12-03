@@ -4,6 +4,7 @@ import { Button } from 'primereact/button';
 import { InputNumber } from 'primereact/inputnumber';
 import { useCart } from '../../context/CartContext';
 import ProductModal from '../../components/Product/ProductModal';
+import { getImagePath } from '../../utils/imageUtils';
 
 const CartItem = ({ item }) => {
   const { updateQuantity, removeFromCart, updateSize } = useCart();
@@ -31,11 +32,11 @@ const CartItem = ({ item }) => {
       <div className="flex flex-col md:flex-row items-stretch gap-4 pr-4 pl-4 py-4">
         <div className="flex-shrink-0 w-full md:w-auto flex justify-center md:block mb-2 md:mb-0">
           <img
-            src={`${window.APP_CONFIG.basePath}/${item.image}`}
+            src={getImagePath(item.image)}
             alt={item.name}
             className="w-32 h-32 object-cover rounded-lg shadow"
             onError={(e) => {
-              e.target.src = `${window.APP_CONFIG.basePath}/images/img-1.jpg`;
+              e.target.src = getImagePath('images/img-1.jpg');
             }}
           />
         </div>

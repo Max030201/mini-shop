@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Panel } from 'primereact/panel';
 import FilterContent from './FilterContent';
+import { getImagePath } from '../../utils/imageUtils';
 
 const GENDERS = [
   { label: 'Мужской', value: 'Мужской' },
@@ -108,7 +109,7 @@ const FilterPanel = ({ filters, onFiltersChange, products = [] }) => {
             onClick={() => setIsOpen(false)}
             aria-label="Закрыть фильтры"
       >
-            <img src={`${window.APP_CONFIG.basePath}/images/close.svg`} alt="Закрыть" className="w-6 h-6" />
+            <img src={getImagePath('images/close.svg')} alt="Закрыть" className="w-6 h-6" />
       </button>
         </div>
         <div className="flex-1 overflow-y-auto px-4 py-4 filters-panel-content">
@@ -133,7 +134,7 @@ const FilterPanel = ({ filters, onFiltersChange, products = [] }) => {
             onClick={() => setIsPanelOpen((prev) => !prev)}
             aria-label="Открыть фильтры"
           >
-            <img src={`${window.APP_CONFIG.basePath}/images/filter_icon.svg`} className={`w-7 h-7 ${isPanelOpen ? 'text-blue-600' : 'text-gray-500'}`} alt="filter icon" />
+            <img src={getImagePath('images/filter_icon.svg')} className={`w-7 h-7 ${isPanelOpen ? 'text-blue-600' : 'text-gray-500'}`} alt="filter icon" />
           </button>
         </div>
         <div className={`transition-all duration-300 overflow-hidden ${isPanelOpen ? 'opacity-100 pointer-events-auto px-4' : 'opacity-0 pointer-events-none w-0 px-0'} flex-1`}> 
@@ -156,7 +157,7 @@ const FilterPanel = ({ filters, onFiltersChange, products = [] }) => {
         onClick={() => setIsOpen(true)}
         aria-label="Открыть фильтры"
       >
-        <img src={`${window.APP_CONFIG.basePath}/images/filter_icon.svg`} className="w-7 h-7" alt="filter icon" />
+        <img src={getImagePath('images/filter_icon.svg')} className="w-7 h-7" alt="filter icon" />
       </button>
     </>
   );
