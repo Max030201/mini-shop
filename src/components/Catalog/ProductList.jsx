@@ -237,7 +237,7 @@ const ProductList = ({ products: productsProp, filters, onProductClick, searchQu
                 <div className="flex flex-col h-full">
                   <div className="relative">
                     <img
-                      src={getImagePath('product.image')}
+                      src={getImagePath(product.image)}
                       alt={product.name}
                       className="w-full h-48 object-cover rounded-t-2xl shadow-sm"
                       onError={(e) => {

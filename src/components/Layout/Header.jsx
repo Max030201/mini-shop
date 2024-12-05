@@ -11,7 +11,7 @@ const Header = ({ onCartOpen, onContinueShopping, showCart }) => {
   const startContent = (
     <div className="flex items-center gap-3">
       <Avatar 
-        image="/images/logo.jpg" 
+        image={getImagePath('images/logo.jpg')}
         size="large" 
         shape="circle"
         className="border-2 border-blue-500 shadow-md" />
