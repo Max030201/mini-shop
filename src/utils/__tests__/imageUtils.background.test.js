@@ -1,9 +1,6 @@
-// Просто тестируем логику getBackgroundImage напрямую
 describe('getBackgroundImage', () => {
-  // Импортируем только getImagePath, а getBackgroundImage тестируем как чистую функцию
   const { getImagePath } = require('../imageUtils');
-  
-  // Тестируем логику преобразования в CSS url()
+
   const testGetBackgroundImage = (imageUrl) => `url(${imageUrl})`;
 
   test('возвращает корректную строку CSS url()', () => {
@@ -28,7 +25,6 @@ describe('getBackgroundImage', () => {
   });
 
   test('интегрируется с реальной getImagePath', () => {
-    // Интеграционный тест с реальной getImagePath
     const imageUrl = getImagePath('test.jpg');
     const result = testGetBackgroundImage(imageUrl);
     
@@ -38,7 +34,6 @@ describe('getBackgroundImage', () => {
   });
 
   test('реальная getBackgroundImage работает', () => {
-    // Также проверяем, что реальная функция существует и работает
     const { getBackgroundImage } = require('../imageUtils');
     const result = getBackgroundImage('test.jpg');
     

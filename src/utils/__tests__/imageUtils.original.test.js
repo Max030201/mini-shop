@@ -1,6 +1,4 @@
-// Тестируем логику функций напрямую
 describe('getBasePath', () => {
-  // Тестируем логику getBasePath напрямую с передачей hostname
   const testGetBasePath = (hostname) => {
     if (!hostname) {
       return '';
@@ -30,14 +28,12 @@ describe('getBasePath', () => {
   });
 
   test('реальная getBasePath работает', () => {
-    // Проверяем, что реальная функция существует и возвращает строку
     const { getBasePath } = require('../imageUtils');
     expect(typeof getBasePath()).toBe('string');
   });
 });
 
 describe('getImagePath', () => {
-  // Тестируем логику getImagePath напрямую
   const testGetImagePath = (imagePath, basePath = '') => {
     if (!imagePath) {
       return `${basePath}/`;
@@ -70,7 +66,6 @@ describe('getImagePath', () => {
   });
 
   test('интегрируется с реальными функциями', () => {
-    // Интеграционный тест с реальными функциями
     const { getImagePath } = require('../imageUtils');
     
     expect(typeof getImagePath('test.jpg')).toBe('string');
