@@ -4,7 +4,7 @@ import { Button } from 'primereact/button';
 import { InputNumber } from 'primereact/inputnumber';
 import { useCart } from '../../context/CartContext';
 import ProductModal from '../../components/Product/ProductModal';
-import { getImagePath } from '../../utils/imageUtils';
+import { getImagePath, getBackgroundImage } from '../../utils/imageUtils';
 
 const CartItem = ({ item }) => {
   const { updateQuantity, removeFromCart, updateSize } = useCart();
@@ -96,7 +96,7 @@ const CartItem = ({ item }) => {
                 onChange={e => handleSizeChange(e.target.value)}
                 className="h-9 w-12 text-base font-semibold text-gray-800 rounded-lg border border-gray-300 shadow-sm focus:border-blue-400 focus:ring-2 focus:ring-blue-100 transition appearance-none cursor-pointer outline-none hover:bg-blue-50 text-center p-0 pr-6 align-middle leading-none"
                 style={{
-                  backgroundImage: 'url(/images/chevron-down.svg)',
+                  backgroundImage: getBackgroundImage('images/chevron-down.svg'),
                   backgroundRepeat: 'no-repeat',
                   backgroundPosition: 'right 0.25rem center',
                   backgroundSize: '1rem 1rem',
