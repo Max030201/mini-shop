@@ -29,6 +29,9 @@ Mini Shop — одностраничное приложение интернет
 
 ```
 mini-shop/
+  public/
+    image/         # Изображения
+    index.html
   src/
     components/
       Cart/        # CartView, CartItem, CheckoutModal, __tests__/
@@ -38,16 +41,13 @@ mini-shop/
       Layout/      # Header, Footer, __tests__/
     api/           # productsApi.js, __tests__/
     context/       # CartContext.jsx, __tests__/
-    utils/         # cartUtils.jsx, __tests__/
+    utils/         # cartUtils.jsx, imageUtils.js, __tests__/
     App.jsx
     index.js
     index.css
     setupTests.js
     __tests__/     # Интеграционные тесты (App.test.jsx)
-  db.json          # Моковые данные для json-server
-  public/
-    image/
-    index.html           
+  db.json          # Моковые данные для json-server           
   package.json
   README.md
   package-lock.json
